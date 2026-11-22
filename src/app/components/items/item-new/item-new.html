@@ -1,0 +1,47 @@
+<div class="card mt-3">
+    <div class="card-header">
+        Add new inventorization item
+    </div>
+    <div class="card-body">
+        <form [formGroup]="newItemForm" (submit)="addInventorizationItem()">
+            <div class="mb-3">
+                <label for="" class="form-label">Inventorization number</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    formControlName="inv_no"
+                    [class.is-invalid]="! newItemForm.get('inv_no')?.valid && newItemForm.get('inv_no')?.touched"
+                >
+                <div class="helper-block " *ngIf="! newItemForm.get('inv_no')?.valid && newItemForm.get('inv_no')?.touched" >Inventorization number must bet 6 characters length</div>
+
+
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Item name</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    formControlName="name" 
+                    [class.is-invalid]="! newItemForm.get('name')?.valid && newItemForm.get('name')?.touched"
+                
+                >
+
+            </div>
+            <hr>
+            <div class="mb-3">Locations</div>
+            <div class="mb-3" formArrayName="locations">
+                <div class="mb-3" *ngFor="let location of locations; let i=index">
+                    <input type="text" class="form-control"  [formControlName]="i">
+                </div>
+            </div>
+            <button class="btn btn-info me-3" (click)="addLocationField()">Add aditional location</button>
+            <button class="btn btn-info" (click)="removeLocationField()">Remove location</button>
+            <hr>
+            <button type="submit" class="btn btn-success" [disabled]="! newItemForm.valid">Add new inventorization item</button>
+
+        </form>
+       
+
+
+    </div>
+</div>
