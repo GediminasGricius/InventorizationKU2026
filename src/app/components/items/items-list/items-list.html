@@ -11,13 +11,19 @@
                     <th>Location</th>
                     <th></th>
                 </tr>
+                <tr>
+                    <th><input type="text" name="" id="" class="form-control" [(ngModel)]="filterNumber" (keyup)="filter()"></th>
+                    <th><input type="text" name="" id="" class="form-control" [(ngModel)]="filterName" (keyup)="filter()"></th>
+                    <th><input type="text" name="" id="" class="form-control" [(ngModel)]="fiterRoom" (keyup)="filter()"></th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of items(); let i=index">
                     <td>{{ item.inv_no }}</td>
                     <td>{{ item.name }}</td>
                     <td>
-                        <span *ngFor="let location of item.locations ">{{ location }}</span> 
+                        <span *ngFor="let location of item.locations " class="me-3">{{ location }}</span> 
                     </td>
                     <td></td>
                 </tr>

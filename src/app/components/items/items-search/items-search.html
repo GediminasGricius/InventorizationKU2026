@@ -1,0 +1,52 @@
+<div class="card mt-3">
+    <div class="card-header">
+        Search for inventorization item
+    </div>
+    <div class="card-body">
+        
+            <div class="mb-3">
+                <label for="" class="form-label">Inventorization number</label>
+                <input 
+                    type="text" 
+                    class="form-control" [(ngModel)]="itemNumber">
+               
+
+            </div>
+           
+            <button type="submit" class="btn btn-success" (click)="search()">Search</button>
+
+      
+
+
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        Inventorization items
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th></th>
+                </tr>
+             
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items(); let i=index">
+                    <td>{{ item.inv_no }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>
+                        <span *ngFor="let location of item.locations " class="me-3">{{ location }}</span> 
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

@@ -34,8 +34,8 @@
                     <input type="text" class="form-control"  [formControlName]="i">
                 </div>
             </div>
-            <button class="btn btn-info me-3" (click)="addLocationField()">Add aditional location</button>
-            <button class="btn btn-info" (click)="removeLocationField()">Remove location</button>
+            <button type="button" class="btn btn-info me-3" (click)="addLocationField()">Add aditional location</button>
+            <button type="button" class="btn btn-info" (click)="removeLocationField()">Remove location</button>
             <hr>
             <button type="submit" class="btn btn-success" [disabled]="! newItemForm.valid">Add new inventorization item</button>
 

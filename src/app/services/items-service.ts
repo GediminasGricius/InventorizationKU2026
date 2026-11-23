@@ -29,4 +29,21 @@ export class ItemsService {
         return this.http.post(this.apiURL+".json", item);
     }
 
+    public searchItems(nr:string){
+        return this.http.get<{[key:string]:Item}>(this.apiURL+".json?orderBy=\"inv_no\"&equalTo=\""+nr+"\"").pipe(
+            map((data)=>{
+                const tmp:Item[]=[];
+                for(let id in data){
+                    tmp.push({
+                        inv_no:data[id].inv_no,
+                        locations:data[id].locations,
+                        id:id,
+                        name:data[id].name
+                    })
+                }
+                return tmp;
+            })
+        );
+    }
+
 }
